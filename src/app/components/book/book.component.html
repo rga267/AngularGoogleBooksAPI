@@ -1,0 +1,7 @@
+<p>book works!</p>
+<div class="thumbnail"><img src="{{book.thumbnail}}"></div>
+<div class="title">Title: {{book.title}}</div>
+<div class="author">Author: {{book.author}}</div>
+<div class="type">Type: {{book.type}}</div>
+<div class="description">Description: {{book.description}}</div>
+<button *ngIf="!isFavorite"(click)="favorite()" class="favorite">Add Favorite</button>

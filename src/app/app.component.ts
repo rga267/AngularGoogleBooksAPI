@@ -1,10 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Book } from './models/book';
+import { BookService } from './providers/book.service';
 
 @Component({
   selector: 'gb-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'AngularGoogleBooks';
+export class AppComponent implements OnInit{
+  favoriteBook: Book;
+  booksToRead: Book[] = [];
+
+  constructor(private bookService: BookService){
+    this.favoriteBook = new Book();
+  }
+
+  ngOnInit(): void {
+      this.favoriteBook = this.bookService.getFavorite();
+      this.booksToRead = this.bookService.getBooksToRead();
+  }
+
+  favorite(book: Book): void {
+    this.favoriteBook = book;
+  }
+  
 }
