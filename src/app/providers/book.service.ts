@@ -8,7 +8,7 @@ import { Book } from '../models/book';
 })
 
 export class BookService {
-  favorite: Book = new Book;
+  favorite: Book = new Book();
 
   constructor(public httpClient: HttpClient) {}
 
@@ -24,7 +24,7 @@ export class BookService {
     let url = 'https://www.googleapis.com/books/v1/volumes?q='+input;
     return this.httpClient.get(url)
       .pipe(mergeMap((value: any) => {
-        return value.item;
+        return value.items;
       }))
       .pipe(map((value: any) => {
         return value.volumeInfo;
@@ -37,7 +37,7 @@ export class BookService {
         book.type = value.type;
         book.thumbnail = value.imageLinks.thumbnail;
         return book;
-      }))
+      }));
 
   }
 
