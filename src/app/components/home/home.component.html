@@ -1,10 +1,11 @@
-<gb-book [book]="favoriteBook" [isFavorite]="true" (favoriteEvent)="favorite($event)" class="favoriteBook"></gb-book>
+<gb-search></gb-search>
+<gb-book [book]="bookService.getFavorite()" [isFavorite]="true" (favoriteEvent)="favorite($event)" class="favoriteBook"></gb-book>
 <div class="booksToRead">
-    <h3>Books To Read</h3>
     <a class="addNewBook"
     [routerLink]="['/newBook']">
     Add Book
     </a>
+    <h3>Books To Read</h3>
     <div *ngFor="let book of booksToRead">
         <div>
             <gb-book [book]="book" [isFavorite]="false" (favoriteEvent)="favorite($event)"></gb-book>

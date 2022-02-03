@@ -7,6 +7,9 @@ import { BookComponent } from './components/book/book.component';
 import { HomeComponent } from './components/home/home.component';
 import { BookFormComponent } from './components/book-form/book-form.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { SearchComponent } from './components/search/search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,15 @@ import { SearchResultsComponent } from './components/search-results/search-resul
     BookComponent,
     HomeComponent,
     BookFormComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
